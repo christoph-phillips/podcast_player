@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import styled from "styled-components";
 
-function App() {
+import { loadPodcasts } from "./actions/podcasts_actions";
+import ListItem from "./components/ListItem";
+import Player from "./components/Player";
+
+const AppContainer = styled.div`
+  width: 500px;
+  top: 20px;
+  left: calc((100% - 500px) / 2);
+  height: calc(100vh - 40px);
+  position: fixed;
+`;
+const Listing = styled.div`
+  width: 100%;
+  overflow-y: scroll;
+  height: calc(100vh - 40px - 500px);
+`;
+
+function App({ loadPodcasts, list, current }) {
+  useEffect(() => {
+    loadPodcasts();
+  }, [loadPodcasts]);
+  console.log({ list, current });
+  if (!current) {
+    return <h1>Loading</h1>;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <Player
+        title={current.title}
+        author={current.author}
+        duration={current.duration}
+        artwork={current.artwork}
+      />
+      <Listing>
+        {list.map(podcast => (
+          <ListItem
+            title={podcast.title}
+            description={podcast.description}
+            duration={podcast.duration}
+            artwork={podcast.artwork}
+          />
+        ))}
+      </Listing>
+    </AppContainer>
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    list: state.podcasts.list,
+    current: state.podcasts.current
+  };
+};
+
+const actionCreators = {
+  loadPodcasts
+};
+
+export default connect(mapStateToProps, actionCreators)(App);
