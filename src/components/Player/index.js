@@ -1,5 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+
+import {
+  playPodcast,
+  stopPodcast,
+  loadPodcast
+} from "../../actions/podcasts_actions";
+import { prev, next } from "../../utils";
 import theme from "../../styles/theme";
 
 import ProgressBar from "../ProgressBar";
@@ -49,22 +57,29 @@ const createButton = (img, onClick) => {
 };
 
 const Player = ({
+  list,
   title,
   author,
   duration,
-  artwork: {
-    urls: [{ size, url }]
-  }
+  img,
+  url,
+  id,
+  playing,
+  loadPodcast,
+  playPodcast,
+  stopPodcast
 }) => {
   return (
-    <PlayerContainer img={url}>
+    <PlayerContainer img={img}>
       <Details>
         <Title>{title}</Title>
         <Author>{author}</Author>
         <Controls>
-          {createButton("icons/prev.png", () => console.log("prev"))}
-          {createButton("icons/play.png", () => console.log("play"))}
-          {createButton("icons/next.png", () => console.log("next"))}
+          {createButton("icons/prev.png", () => loadPodcast(prev(list, id).id))}
+          {playing
+            ? createButton("icons/stop.png", () => stopPodcast())
+            : createButton("icons/play.png", () => playPodcast({ id, url }))}
+          {createButton("icons/next.png", () => loadPodcast(next(list, id).id))}
         </Controls>
       </Details>
       <ProgressBar />
@@ -72,4 +87,34 @@ const Player = ({
   );
 };
 
-export default Player;
+const mapStateToProps = state => {
+  const {
+    title,
+    author,
+    duration,
+    artwork: {
+      urls: [{ url: img }]
+    },
+    url,
+    id,
+    playing
+  } = state.podcasts.current;
+  return {
+    list: state.podcasts.list,
+    title,
+    author,
+    duration,
+    img,
+    id,
+    url,
+    playing
+  };
+};
+
+const actionCreators = {
+  playPodcast,
+  stopPodcast,
+  loadPodcast
+};
+
+export default connect(mapStateToProps, actionCreators)(Player);

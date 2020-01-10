@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { loadPodcasts } from "./actions/podcasts_actions";
-import ListItem from "./components/ListItem";
+
 import Player from "./components/Player";
+import Listing from "./components/Listing";
 
 const AppContainer = styled.div`
   width: 500px;
@@ -12,11 +13,6 @@ const AppContainer = styled.div`
   left: calc((100% - 500px) / 2);
   height: calc(100vh - 40px);
   position: fixed;
-`;
-const Listing = styled.div`
-  width: 100%;
-  overflow-y: scroll;
-  height: calc(100vh - 40px - 500px);
 `;
 
 function App({ loadPodcasts, list, current }) {
@@ -29,22 +25,8 @@ function App({ loadPodcasts, list, current }) {
   }
   return (
     <AppContainer>
-      <Player
-        title={current.title}
-        author={current.author}
-        duration={current.duration}
-        artwork={current.artwork}
-      />
-      <Listing>
-        {list.map(podcast => (
-          <ListItem
-            title={podcast.title}
-            description={podcast.description}
-            duration={podcast.duration}
-            artwork={podcast.artwork}
-          />
-        ))}
-      </Listing>
+      <Player />
+      <Listing />
     </AppContainer>
   );
 }

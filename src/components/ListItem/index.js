@@ -35,11 +35,12 @@ const ListItem = ({
   duration,
   artwork: {
     urls: [{ size, url }]
-  }
+  },
+  onSelect
 }) => {
   const { minutes, seconds } = humanReadableTime(duration);
   return (
-    <ListContainer>
+    <ListContainer onClick={onSelect}>
       <Img alt={title} src={url} />
       <DetailContainer>
         <MainDetail>{title}</MainDetail>

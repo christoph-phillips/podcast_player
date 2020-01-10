@@ -6,4 +6,19 @@ const humanReadableTime = duration => {
   };
 };
 
-export { humanReadableTime };
+const next = (list, currentId) => {
+  const index = list.findIndex(item => item.id === currentId);
+  if (index === list.length - 1) {
+    return list[0];
+  }
+  return list[index + 1];
+};
+const prev = (list, currentId) => {
+  const index = list.findIndex(item => item.id === currentId);
+  if (index === 0) {
+    return list[list.length - 1];
+  }
+  return list[index - 1];
+};
+
+export { humanReadableTime, next, prev };

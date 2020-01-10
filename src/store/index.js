@@ -2,8 +2,10 @@ import rootReducer from "../reducers";
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
+import audio from "../middleware/audio";
+
 const enhancers = [];
-const middleware = [thunk];
+const middleware = [thunk, audio];
 
 if (process.env.NODE_ENV === "development") {
   const devToolsExtension = window.devToolsExtension;
@@ -13,10 +15,7 @@ if (process.env.NODE_ENV === "development") {
   }
 }
 
-const composedEnhancers = compose(
-  applyMiddleware(...middleware),
-  ...enhancers
-);
+const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
 
 export default initialState => {
   return createStore(rootReducer, initialState, composedEnhancers);
