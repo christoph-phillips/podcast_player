@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { humanReadableTime } from "../../utils";
-import { PlayButton } from "../../styles/theme";
+import theme, { PlayButton } from "../../styles/theme";
 
 const ListContainer = styled.div`
   display: flex;
   padding: 10px;
-  border: 1px solid white;
+  border: 1px solid ${theme.primary};
 `;
 const DetailContainer = styled.div`
   display: flex;
@@ -20,9 +20,12 @@ const MainDetail = styled.h4`
 `;
 const SubDetail = styled.div`
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
 `;
-const Duration = styled.p``;
+const Duration = styled.p`
+  margin: 3px 0;
+  font-size: 14px;
+`;
 
 const ListItem = ({
   title,

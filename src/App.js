@@ -18,7 +18,7 @@ const AppContainer = styled.div`
   position: fixed;
   background: ${theme.background};
   overflow: hidden;
-  color: white;
+  color: ${theme.primary};
 `;
 
 function App({ loadPodcasts, current }) {

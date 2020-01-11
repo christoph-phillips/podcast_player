@@ -5,27 +5,27 @@ import theme from "../../styles/theme";
 import podcastPlayer from "../../utils/PodcastPlayer";
 
 const sliderThumbStyles = props => `
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 100%;
-  background: white;
+  background: ${theme.primary};
 `;
 
 const Container = styled.div`
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   width: 80%;
   margin: 0;
   display: flex;
   align-items: center;
-  color: #888;
+  color: ${theme.primary};
   .slider {
     flex: 6;
     -webkit-appearance: none;
     width: 100%;
-    height: 10px;
+    height: 5px;
     border-radius: 5px;
-    background: #efefef;
+    background: ${theme.primary};
     outline: none;
     &::-webkit-slider-thumb {
       -webkit-appearance: none;

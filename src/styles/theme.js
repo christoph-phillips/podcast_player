@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const theme = {
-  primary: "white",
+  primary: "#e1edf5",
   background: "#3e3e3e"
 };
 

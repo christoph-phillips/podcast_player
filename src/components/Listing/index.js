@@ -6,12 +6,12 @@ import PropTypes from "prop-types";
 import ListItem from "../ListItem";
 
 import {
-  // loadPodcast,
   playPodcast,
   stopPodcast,
   loadPodcast
 } from "../../actions/podcasts_actions";
-import podcastPlayer from "../../utils/PodcastPlayer";
+
+import theme from "../../styles/theme";
 
 const Container = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ const Container = styled.div`
     background: 0;
   }
   ::-webkit-scrollbar-thumb {
-    background: white;
+    background: ${theme.primary};
   }
 `;
 

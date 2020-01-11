@@ -9,7 +9,12 @@ import {
 export default (state = { list: [], current: null }, action) => {
   switch (action.type) {
     case FETCH_PODCASTS:
-      return { list: action.payload, current: { ...action.payload[0] } };
+      return {
+        list: action.payload.sort(
+          (a, b) => new Date(b.published_at) - new Date(a.published_at)
+        ),
+        current: { ...action.payload[0] }
+      };
     case LOAD_PODCAST:
       const newPodcast = state.list.find(
         podcast => podcast.id === action.payload.id

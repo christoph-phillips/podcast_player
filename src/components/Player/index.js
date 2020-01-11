@@ -18,7 +18,7 @@ const PlayerContainer = styled.div`
   height: 400px;
   position: relative;
   background: ${theme.background};
-  border: 2px solid white;
+  border: 2px solid ${theme.primary};
 `;
 
 const Image = styled.div`
@@ -39,14 +39,12 @@ const Details = styled.div`
   padding: 20px 10px;
 `;
 const Title = styled.h1`
-  color: white;
   margin: 0;
   font-size: 18px;
   margin: 20px 0 5px 0;
   line-height: 22px;
 `;
 const Author = styled.h2`
-  color: white;
   font-size: 16px;
   margin: 0;
 `;
