@@ -3,12 +3,15 @@ import {
   STOP_PODCAST,
   LOAD_PODCAST
 } from "../actions/action_types";
+
 import {
   podcastLoaded,
   playPodcast,
   loadPodcast
 } from "../actions/podcasts_actions";
-import podcastPlayer from "../utils/PodcastPlayer";
+
+import podcastPlayer from "../lib/PodcastPlayer";
+
 import { next as nextPodcast } from "../utils";
 
 const audio = store => next => action => {
@@ -30,7 +33,6 @@ const audio = store => next => action => {
       if (result.payload.autoplay) {
         store.dispatch(playPodcast({ url: podcast.url, id: podcast.id }));
       }
-
       return;
     case PLAY_PODCAST:
       podcastPlayer.play();
@@ -38,8 +40,9 @@ const audio = store => next => action => {
     case STOP_PODCAST:
       podcastPlayer.pause();
       return;
+    default:
+      return result;
   }
-  return result;
 };
 
 export default audio;

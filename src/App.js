@@ -19,6 +19,12 @@ const AppContainer = styled.div`
   background: ${theme.background};
   overflow: hidden;
   color: ${theme.primary};
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+    top: 0;
+    height: 100%;
+    left: 0;
+  }
 `;
 
 function App({ loadPodcasts, current }) {

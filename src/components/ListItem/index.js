@@ -9,19 +9,23 @@ const ListContainer = styled.div`
   padding: 10px;
   border: 1px solid ${theme.primary};
 `;
+
 const DetailContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
   width: 400px;
 `;
+
 const MainDetail = styled.h4`
   margin: 0;
 `;
+
 const SubDetail = styled.div`
   margin: 0;
   font-size: 14px;
 `;
+
 const Duration = styled.p`
   margin: 3px 0;
   font-size: 14px;
@@ -40,7 +44,7 @@ const ListItem = ({
     <ListContainer>
       {playing
         ? PlayButton(
-            { img: "icons/stop.png", size: 60, loaded, border: true },
+            { img: "icons/pause.png", size: 60, loaded, border: true },
             onSelect
           )
         : PlayButton(

@@ -13,6 +13,7 @@ const next = (list, currentId) => {
   }
   return list[index + 1];
 };
+
 const prev = (list, currentId) => {
   const index = list.findIndex(item => item.id === currentId);
   if (index === 0) {

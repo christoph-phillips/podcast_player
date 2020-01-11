@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../styles/theme";
 
-import podcastPlayer from "../../utils/PodcastPlayer";
+import podcastPlayer from "../../lib/PodcastPlayer";
 
 const sliderThumbStyles = props => `
   width: 15px;

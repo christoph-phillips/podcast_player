@@ -8,7 +8,9 @@ import {
   stopPodcast,
   loadPodcast
 } from "../../actions/podcasts_actions";
+
 import { prev, next } from "../../utils";
+
 import theme, { PlayButton, Button } from "../../styles/theme";
 
 import ProgressBar from "../ProgressBar";
@@ -27,6 +29,7 @@ const Image = styled.div`
   min-height: 150px;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url(${props => props.img}) no-repeat center center;
+  background-size: cover;
 `;
 
 const Details = styled.div`
@@ -38,12 +41,14 @@ const Details = styled.div`
   text-align: center;
   padding: 20px 10px;
 `;
+
 const Title = styled.h1`
   margin: 0;
   font-size: 18px;
   margin: 20px 0 5px 0;
   line-height: 22px;
 `;
+
 const Author = styled.h2`
   font-size: 16px;
   margin: 0;
@@ -57,6 +62,7 @@ const Controls = styled.div`
   height: 20%;
   justify-content: center;
 `;
+
 const Player = ({
   list,
   title,
@@ -87,7 +93,7 @@ const Player = ({
           ></Button>
           {playing
             ? PlayButton(
-                { img: "icons/stop.png", size: 60, loaded, border: true },
+                { img: "icons/pause.png", size: 60, loaded, border: true },
                 () => loaded && stopPodcast()
               )
             : PlayButton(

@@ -26,6 +26,9 @@ const Container = styled.div`
   ::-webkit-scrollbar-thumb {
     background: ${theme.primary};
   }
+  @media only screen and (max-width: 400px) {
+    height: calc(100vh - 400px);
+  }
 `;
 
 const Listing = ({

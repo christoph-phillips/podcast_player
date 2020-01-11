@@ -21,7 +21,6 @@ PodcastPlayer.prototype = {
     this.audio = new window.Audio(url);
     this.audio.preload = "auto";
     this.audio.onended = endCb;
-    // this.audio.currentTime = 10000;
     this.audio.addEventListener("canplaythrough", loadCb);
   },
   createProgressInterval(cb) {
