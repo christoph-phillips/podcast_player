@@ -7,12 +7,17 @@ import { loadPodcasts } from "./actions/podcasts_actions";
 import Player from "./components/Player";
 import Listing from "./components/Listing";
 
+import theme from "./styles/theme";
+
 const AppContainer = styled.div`
-  width: 500px;
+  width: 400px;
   top: 20px;
-  left: calc((100% - 500px) / 2);
+  left: calc((100% - 400px) / 2);
   height: calc(100vh - 40px);
   position: fixed;
+  background: ${theme.background};
+  overflow: hidden;
+  color: white;
 `;
 
 function App({ loadPodcasts, list, current }) {

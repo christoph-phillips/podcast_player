@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import { humanReadableTime } from "../../utils";
+import { PlayButton } from "../../styles/theme";
 
 const ListContainer = styled.div`
   display: flex;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid white;
 `;
 const DetailContainer = styled.div`
   display: flex;
@@ -14,38 +15,44 @@ const DetailContainer = styled.div`
   padding: 10px;
   width: 400px;
 `;
-const Img = styled.img`
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-`;
-const MainDetail = styled.h2`
+const MainDetail = styled.h4`
   margin: 0;
 `;
 const SubDetail = styled.div`
   margin: 0;
+  font-size: 12px;
 `;
-const Duration = styled.p`
-  margin: 0;
-`;
+const Duration = styled.p``;
 
 const ListItem = ({
   title,
   description,
   duration,
-  artwork: {
-    urls: [{ size, url }]
-  },
-  onSelect
+  onSelect,
+  playing,
+  loaded
 }) => {
   const { minutes, seconds } = humanReadableTime(duration);
   return (
-    <ListContainer onClick={onSelect}>
-      <Img alt={title} src={url} />
+    <ListContainer>
+      {playing
+        ? PlayButton(
+            { img: "icons/stop.png", size: 60, loaded, border: true },
+            onSelect
+          )
+        : PlayButton(
+            {
+              img: "icons/play.png",
+              size: 60,
+              loaded,
+              border: true
+            },
+            onSelect
+          )}
       <DetailContainer>
         <MainDetail>{title}</MainDetail>
-        <SubDetail dangerouslySetInnerHTML={{ __html: description }} />
         <Duration>{`${minutes}:${seconds}`}</Duration>
+        <SubDetail dangerouslySetInnerHTML={{ __html: description }} />
       </DetailContainer>
     </ListContainer>
   );

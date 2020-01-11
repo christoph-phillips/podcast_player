@@ -20,10 +20,10 @@ export const loadPodcasts = () => {
   };
 };
 
-export const loadPodcast = id => {
+export const loadPodcast = (id, autoplay) => {
   return {
     type: LOAD_PODCAST,
-    payload: id
+    payload: { id, autoplay }
   };
 };
 export const playPodcast = ({ id, url }) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -8,48 +8,69 @@ import {
   loadPodcast
 } from "../../actions/podcasts_actions";
 import { prev, next } from "../../utils";
-import theme from "../../styles/theme";
+import theme, { PlayButton } from "../../styles/theme";
 
 import ProgressBar from "../ProgressBar";
 
 const PlayerContainer = styled.div`
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${props => props.img}) no-repeat center center;
+  width: 100%;
+  height: 400px;
   position: relative;
+  background: ${theme.background};
+  border: 2px solid white;
+`;
+
+const Image = styled.div`
+  width: 150px;
+  height: 150px;
+  min-height: 150px;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(${props => props.img}) no-repeat center center;
 `;
 
 const Details = styled.div`
-  width: 100%;
-  height: 100%;
+  height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  padding: 20px 10px;
 `;
 const Title = styled.h1`
   color: white;
   margin: 0;
-  font-size: 60px;
+  font-size: 18px;
+  margin: 10px;
+  line-height: 22px;
 `;
 const Author = styled.h2`
   color: white;
+  font-size: 16px;
+  margin: 0;
 `;
 
 const Controls = styled.div`
   display: flex;
+  vertical-align: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
 `;
 
-const createButton = (img, onClick) => {
+const createButton = (img, onClick, size, border) => {
   const Button = styled.button`
     background: url(${img}) no-repeat center center;
-    width: 80px;
-    height: 80px;
+    background-size: 32px;
+    width: ${size}px;
+    height: ${size}px;
+    min-width: ${size}px;
+    min-height: ${size}px;
     filter: invert(1);
     cursor: pointer;
     border-radius: 100%;
-    border: 2px solid black;
+    border: ${border ? "2px solid black" : 0};
     outline: 0;
     margin: 20px;
   `;
@@ -67,22 +88,47 @@ const Player = ({
   playing,
   loadPodcast,
   playPodcast,
-  stopPodcast
+  stopPodcast,
+  loaded
 }) => {
   return (
-    <PlayerContainer img={img}>
+    <PlayerContainer>
       <Details>
+        <Image img={img} />
         <Title>{title}</Title>
         <Author>{author}</Author>
-        <Controls>
-          {createButton("icons/prev.png", () => loadPodcast(prev(list, id).id))}
-          {playing
-            ? createButton("icons/stop.png", () => stopPodcast())
-            : createButton("icons/play.png", () => playPodcast({ id, url }))}
-          {createButton("icons/next.png", () => loadPodcast(next(list, id).id))}
-        </Controls>
       </Details>
-      <ProgressBar />
+      <Controls>
+        <Fragment>
+          {createButton(
+            "icons/prev.png",
+            () => loadPodcast(prev(list, id).id, playing),
+            40
+          )}
+          {playing
+            ? PlayButton(
+                { img: "icons/stop.png", size: 60, loaded, border: true },
+                () => loaded && stopPodcast()
+              )
+            : PlayButton(
+                {
+                  img: "icons/play.png",
+                  size: 60,
+                  loaded,
+                  border: true
+                },
+                () => {
+                  playPodcast({ id });
+                }
+              )}
+          {createButton(
+            "icons/next.png",
+            () => loaded && loadPodcast(next(list, id).id, playing),
+            40
+          )}
+        </Fragment>
+        <ProgressBar />
+      </Controls>
     </PlayerContainer>
   );
 };
@@ -97,7 +143,8 @@ const mapStateToProps = state => {
     },
     url,
     id,
-    playing
+    playing,
+    loaded
   } = state.podcasts.current;
   return {
     list: state.podcasts.list,
@@ -107,7 +154,8 @@ const mapStateToProps = state => {
     img,
     id,
     url,
-    playing
+    playing,
+    loaded
   };
 };
 
@@ -118,3 +166,5 @@ const actionCreators = {
 };
 
 export default connect(mapStateToProps, actionCreators)(Player);
+
+export { createButton };

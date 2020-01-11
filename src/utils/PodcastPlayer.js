@@ -3,7 +3,6 @@ function PodcastPlayer() {}
 PodcastPlayer.prototype = {
   audio: null,
   progressInterval: null,
-  loadCb: null,
   play() {
     this.audio.play();
   },
@@ -16,16 +15,14 @@ PodcastPlayer.prototype = {
       this.audio.currentTime = 0;
     }
   },
-  destroy() {
-    this.audio.removeEventListener("canplaythrough", () => this.loadCb());
-  },
-  load(url, cb) {
+  load(url, loadCb, endCb) {
     this.stop();
     this.loading = true;
     this.audio = new window.Audio(url);
-    this.audio.onended = () => this.stop();
-    this.loadCb = cb;
-    this.audio.addEventListener("canplaythrough", () => this.loadCb());
+    this.audio.preload = "auto";
+    this.audio.onended = endCb;
+    // this.audio.currentTime = 10000;
+    this.audio.addEventListener("canplaythrough", loadCb);
   },
   createProgressInterval(cb) {
     if (!this.progressInterval) {

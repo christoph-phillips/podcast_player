@@ -12,7 +12,7 @@ export default (state = { list: [], current: null }, action) => {
       return { list: action.payload, current: { ...action.payload[0] } };
     case LOAD_PODCAST:
       const newPodcast = state.list.find(
-        podcast => podcast.id === action.payload
+        podcast => podcast.id === action.payload.id
       );
       return {
         ...state,

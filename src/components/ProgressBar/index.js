@@ -8,14 +8,14 @@ const sliderThumbStyles = props => `
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  background: ${theme.primary};
+  background: white;
 `;
 
 const Container = styled.div`
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   width: 80%;
-  margin: 0 10%;
+  margin: 0;
   display: flex;
   align-items: center;
   color: #888;
@@ -45,7 +45,6 @@ const ProgressBar = () => {
       setProgress(+progress.toFixed(3));
     });
   }, [setProgress]);
-  console.log(progress);
   return (
     <Container>
       <input
