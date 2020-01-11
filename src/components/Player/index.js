@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import {
   playPodcast,
@@ -8,7 +9,7 @@ import {
   loadPodcast
 } from "../../actions/podcasts_actions";
 import { prev, next } from "../../utils";
-import theme, { PlayButton } from "../../styles/theme";
+import theme, { PlayButton, Button } from "../../styles/theme";
 
 import ProgressBar from "../ProgressBar";
 
@@ -41,7 +42,7 @@ const Title = styled.h1`
   color: white;
   margin: 0;
   font-size: 18px;
-  margin: 10px;
+  margin: 20px 0 5px 0;
   line-height: 22px;
 `;
 const Author = styled.h2`
@@ -58,25 +59,6 @@ const Controls = styled.div`
   height: 20%;
   justify-content: center;
 `;
-
-const createButton = (img, onClick, size, border) => {
-  const Button = styled.button`
-    background: url(${img}) no-repeat center center;
-    background-size: 32px;
-    width: ${size}px;
-    height: ${size}px;
-    min-width: ${size}px;
-    min-height: ${size}px;
-    filter: invert(1);
-    cursor: pointer;
-    border-radius: 100%;
-    border: ${border ? "2px solid black" : 0};
-    outline: 0;
-    margin: 20px;
-  `;
-  return <Button onClick={onClick}></Button>;
-};
-
 const Player = ({
   list,
   title,
@@ -100,11 +82,11 @@ const Player = ({
       </Details>
       <Controls>
         <Fragment>
-          {createButton(
-            "icons/prev.png",
-            () => loadPodcast(prev(list, id).id, playing),
-            40
-          )}
+          <Button
+            onClick={() => loaded && loadPodcast(next(list, id).id, playing)}
+            size={40}
+            img={"icons/prev.png"}
+          ></Button>
           {playing
             ? PlayButton(
                 { img: "icons/stop.png", size: 60, loaded, border: true },
@@ -121,11 +103,11 @@ const Player = ({
                   playPodcast({ id });
                 }
               )}
-          {createButton(
-            "icons/next.png",
-            () => loaded && loadPodcast(next(list, id).id, playing),
-            40
-          )}
+          <Button
+            onClick={() => loaded && loadPodcast(next(list, id).id, playing)}
+            size={40}
+            img={"icons/next.png"}
+          ></Button>
         </Fragment>
         <ProgressBar />
       </Controls>
@@ -165,6 +147,19 @@ const actionCreators = {
   loadPodcast
 };
 
-export default connect(mapStateToProps, actionCreators)(Player);
+Player.propTypes = {
+  list: PropTypes.array,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  duration: PropTypes.number,
+  img: PropTypes.string,
+  url: PropTypes.string,
+  id: PropTypes.string,
+  playing: PropTypes.bool,
+  loadPodcast: PropTypes.func,
+  playPodcast: PropTypes.func,
+  stopPodcast: PropTypes.func,
+  loaded: PropTypes.bool
+};
 
-export { createButton };
+export default connect(mapStateToProps, actionCreators)(Player);

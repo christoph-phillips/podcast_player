@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import PropTypes from "prop-types";
 import { humanReadableTime } from "../../utils";
 import { PlayButton } from "../../styles/theme";
 
@@ -56,6 +56,15 @@ const ListItem = ({
       </DetailContainer>
     </ListContainer>
   );
+};
+
+ListItem.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  duration: PropTypes.number,
+  onSelect: PropTypes.func,
+  playing: PropTypes.bool,
+  loaded: PropTypes.bool
 };
 
 export default ListItem;

@@ -19,7 +19,6 @@ export default (state = { list: [], current: null }, action) => {
         current: { ...newPodcast, playing: false, loaded: false }
       };
     case PODCAST_LOADED:
-      console.log("PODCAST LOADED");
       return {
         ...state,
         current: { ...state.current, loaded: true }

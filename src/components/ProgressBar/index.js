@@ -54,6 +54,7 @@ const ProgressBar = () => {
         value={progress || 0}
         step={0.001}
         className="slider"
+        readOnly={true}
       />
     </Container>
   );

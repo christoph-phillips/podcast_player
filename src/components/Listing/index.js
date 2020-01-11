@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import ListItem from "../ListItem";
 
@@ -40,6 +41,7 @@ const Listing = ({
     <Container>
       {list.map(podcast => (
         <ListItem
+          key={podcast.id}
           title={podcast.title}
           description={podcast.description}
           duration={podcast.duration}
@@ -78,6 +80,14 @@ const actionCreators = {
   stopPodcast,
   playPodcast,
   loadPodcast
+};
+
+Listing.propTypes = {
+  list: PropTypes.array,
+  currentId: PropTypes.string,
+  loaded: PropTypes.bool,
+  url: PropTypes.string,
+  playing: PropTypes.bool
 };
 
 export default connect(mapStateToProps, actionCreators)(Listing);

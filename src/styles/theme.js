@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const theme = {
-  primary: "#ff7426",
+  primary: "white",
   background: "#3e3e3e"
 };
 
@@ -70,5 +70,4 @@ const Button = styled.button`
 
 export default theme;
 
-console.log(PlayButton);
-export { Button, PlayButton };
+export { Button, PlayButton, Loader, LoaderContainer };
