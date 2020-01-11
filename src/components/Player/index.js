@@ -83,7 +83,7 @@ const Player = ({
       <Controls>
         <Fragment>
           <Button
-            onClick={() => loaded && loadPodcast(next(list, id).id, playing)}
+            onClick={() => loaded && loadPodcast(prev(list, id).id, playing)}
             size={40}
             img={"icons/prev.png"}
           ></Button>
