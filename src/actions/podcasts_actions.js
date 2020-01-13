@@ -41,9 +41,8 @@ export const stopPodcast = () => {
   };
 };
 
-export const podcastLoaded = bool => {
+export const podcastLoaded = () => {
   return {
-    type: PODCAST_LOADED,
-    payload: bool
+    type: PODCAST_LOADED
   };
 };

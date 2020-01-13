@@ -16,7 +16,8 @@ import {
   stopPodcast,
   podcastLoaded
 } from "./podcasts_actions";
-describe("actions", () => {
+
+describe("Podcast actions", () => {
   it("should create an action to fetch podcasts and load the first in the list", () => {
     const mockData = mock.sort(
       (a, b) => new Date(b.published_at) - new Date(a.published_at)
