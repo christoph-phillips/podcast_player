@@ -1,7 +1,8 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
+import audio from "../middleware/audio";
 
-export default mockStore;
+const mockStore = configureMockStore([thunk]);
+const mockStoreWithAudio = configureMockStore([thunk, audio]);
+export { mockStore, mockStoreWithAudio };

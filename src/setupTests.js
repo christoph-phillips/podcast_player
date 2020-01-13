@@ -21,5 +21,3 @@ beforeAll(() => {
     }
   });
 });
-
-jest.setTimeout(20000);

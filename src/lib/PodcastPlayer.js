@@ -17,11 +17,10 @@ PodcastPlayer.prototype = {
   },
   load(url, loadCb, endCb) {
     this.stop();
-    this.loading = true;
     this.audio = new window.Audio(url);
     this.audio.preload = "auto";
     this.audio.onended = endCb;
-    this.audio.addEventListener("canplaythrough", loadCb);
+    this.audio.oncanplaythrough = loadCb;
   },
   seek(val) {
     this.audio.currentTime = val;

@@ -1,5 +1,5 @@
 import fetchMock from "fetch-mock";
-import mockStore from "../test/mockStore";
+import { mockStore } from "../test/mockStore";
 import mock from "../test/mock";
 import {
   FETCH_PODCASTS,
