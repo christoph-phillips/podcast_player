@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
 import ListItem from "./index";
-import mock from "../../test/mock";
+import mockData from "../../test/mock_data";
 import { humanReadableTime } from "../../utils";
 import { MainDetail, SubDetail, Duration } from "./StyledComponents";
 import PlayButton from "../PlayButton";
-const { title, description, duration } = mock[0];
+const { title, description, duration } = mockData[0];
 
 describe("<ListItem />", () => {
   it("Renders correctly", () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import mock from "../../test/mock";
+import mockData from "../../test/mock_data";
 import { Image, Title, Author } from "./StyledComponents";
 import PlayButton from "../PlayButton";
 import ProgressBar from "../ProgressBar";
@@ -12,7 +12,7 @@ const {
   artwork: {
     urls: [{ url: img }]
   }
-} = mock[0];
+} = mockData[0];
 
 describe("<Player />", () => {
   it("Renders correctly", () => {

@@ -6,9 +6,9 @@ import {
   LOAD_PODCAST,
   PODCAST_LOADED
 } from "../actions/action_types";
-import mock from "../test/mock";
+import mockData from "../test/mock_data";
 
-const initialState = { list: mock, current: mock[0] };
+const initialState = { list: mockData, current: mockData[0] };
 const emptyState = { list: [], current: null };
 
 describe("Podcasts Reducer", () => {
@@ -19,44 +19,44 @@ describe("Podcasts Reducer", () => {
     expect(
       podcastsReducer(initialState, {
         type: FETCH_PODCASTS,
-        payload: mock
+        payload: mockData
       })
     ).toEqual({
-      current: mock[0],
-      list: mock
+      current: mockData[0],
+      list: mockData
     });
   });
   it("LOAD_PODCAST", () => {
     expect(
       podcastsReducer(initialState, {
         type: LOAD_PODCAST,
-        payload: { id: mock[1].id }
+        payload: { id: mockData[1].id }
       })
     ).toEqual({
-      list: mock,
-      current: { ...mock[1], loaded: false, playing: false }
+      list: mockData,
+      current: { ...mockData[1], loaded: false, playing: false }
     });
   });
   it("PLAY_PODCAST", () => {
     expect(
       podcastsReducer(initialState, {
         type: PLAY_PODCAST,
-        payload: { id: mock[0].id, url: mock[0].id }
+        payload: { id: mockData[0].id, url: mockData[0].id }
       })
     ).toEqual({
-      list: mock,
-      current: { ...mock[0], playing: true }
+      list: mockData,
+      current: { ...mockData[0], playing: true }
     });
   });
   it("PODCAST_LOADED", () => {
     expect(
       podcastsReducer(initialState, {
         type: PODCAST_LOADED,
-        payload: { id: mock[0].id, url: mock[0].id }
+        payload: { id: mockData[0].id, url: mockData[0].id }
       })
     ).toEqual({
-      list: mock,
-      current: { ...mock[0], loaded: true }
+      list: mockData,
+      current: { ...mockData[0], loaded: true }
     });
   });
   it("STOP_PODCAST", () => {
@@ -65,8 +65,8 @@ describe("Podcasts Reducer", () => {
         type: STOP_PODCAST
       })
     ).toEqual({
-      list: mock,
-      current: { ...mock[0], playing: false }
+      list: mockData,
+      current: { ...mockData[0], playing: false }
     });
   });
 });

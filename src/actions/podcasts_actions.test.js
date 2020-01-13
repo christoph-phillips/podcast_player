@@ -1,6 +1,6 @@
 import fetchMock from "fetch-mock";
-import { mockStore } from "../test/mockStore";
-import mock from "../test/mock";
+import { mockStore } from "../test/mock_store";
+import mockData from "../test/mock_data";
 import {
   FETCH_PODCASTS,
   PLAY_PODCAST,
@@ -19,19 +19,19 @@ import {
 
 describe("Podcast actions", () => {
   it("should create an action to fetch podcasts and load the first in the list", () => {
-    const mockData = mock.sort(
+    const data = mockData.sort(
       (a, b) => new Date(b.published_at) - new Date(a.published_at)
     );
     fetchMock.getOnce(
       "https://public-api.pod.co/podcasts/create-reach-inspire/episodes",
       {
-        body: { data: mockData },
+        body: { data },
         headers: { "content-type": "application/json" }
       }
     );
     const expectedActions = JSON.stringify([
-      { type: FETCH_PODCASTS, payload: mockData },
-      { type: LOAD_PODCAST, payload: { id: mockData[0].id, autoplay: false } }
+      { type: FETCH_PODCASTS, payload: data },
+      { type: LOAD_PODCAST, payload: { id: data[0].id, autoplay: false } }
     ]);
     const store = mockStore({ podcasts: { list: [], current: [] } });
     return store.dispatch(fetchPodcasts()).then(() => {
