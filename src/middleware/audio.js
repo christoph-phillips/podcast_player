@@ -18,6 +18,7 @@ const audio = store => next => action => {
   const podcast = store.getState().podcasts.current;
   const list = store.getState().podcasts.list;
   let result = next(action);
+
   switch (action.type) {
     case LOAD_PODCAST:
       podcastPlayer.stop();

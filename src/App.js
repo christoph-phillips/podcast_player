@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { loadPodcasts } from "./actions/podcasts_actions";
+import { fetchPodcasts } from "./actions/podcasts_actions";
 
 import Player from "./components/Player";
 import Listing from "./components/Listing";
@@ -27,10 +27,10 @@ export const AppContainer = styled.div`
   }
 `;
 
-export function App({ loadPodcasts, current }) {
+export function App({ fetchPodcasts, current }) {
   useEffect(() => {
-    loadPodcasts();
-  }, [loadPodcasts]);
+    fetchPodcasts();
+  }, [fetchPodcasts]);
 
   return (
     <AppContainer>
@@ -53,12 +53,12 @@ const mapStateToProps = state => {
 };
 
 const actionCreators = {
-  loadPodcasts
+  fetchPodcasts
 };
 
 Listing.propTypes = {
   current: PropTypes.object,
-  loadPodcasts: PropTypes.func
+  fetchPodcasts: PropTypes.func
 };
 
 export default connect(mapStateToProps, actionCreators)(App);

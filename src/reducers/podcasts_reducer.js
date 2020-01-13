@@ -10,9 +10,7 @@ export default (state = { list: [], current: null }, action) => {
   switch (action.type) {
     case FETCH_PODCASTS:
       return {
-        list: action.payload.sort(
-          (a, b) => new Date(b.published_at) - new Date(a.published_at)
-        ),
+        list: action.payload,
         current: { ...action.payload[0] }
       };
     case LOAD_PODCAST:

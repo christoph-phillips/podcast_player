@@ -6,7 +6,7 @@ import {
   PODCAST_LOADED
 } from "./action_types";
 
-export const loadPodcasts = () => {
+export const fetchPodcasts = () => {
   return async dispatch => {
     const response = await fetch(
       "https://public-api.pod.co/podcasts/create-reach-inspire/episodes"
@@ -14,9 +14,11 @@ export const loadPodcasts = () => {
     let { data } = await response.json();
     dispatch({
       type: FETCH_PODCASTS,
-      payload: data
+      payload: data.sort(
+        (a, b) => new Date(b.published_at) - new Date(a.published_at)
+      )
     });
-    dispatch(loadPodcast(data[0].id));
+    dispatch(loadPodcast(data[0].id, false));
   };
 };
 
