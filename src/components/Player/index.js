@@ -114,4 +114,7 @@ Player.propTypes = {
   loaded: PropTypes.bool
 };
 
-export default connect(mapStateToProps, actionCreators)(Player);
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Player);

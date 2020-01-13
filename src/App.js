@@ -61,4 +61,7 @@ Listing.propTypes = {
   fetchPodcasts: PropTypes.func
 };
 
-export default connect(mapStateToProps, actionCreators)(App);
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(App);

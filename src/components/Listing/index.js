@@ -75,4 +75,7 @@ Listing.propTypes = {
   playing: PropTypes.bool
 };
 
-export default connect(mapStateToProps, actionCreators)(Listing);
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Listing);

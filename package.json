@@ -20,7 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:watch": "react-scripts test",
+    "test:unit": "CI=true react-scripts test --env=jsdom",
     "format": "prettier \"src/**/*.{js,html}\" --write"
   },
   "eslintConfig": {
