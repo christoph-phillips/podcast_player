@@ -23,11 +23,15 @@ PodcastPlayer.prototype = {
     this.audio.onended = endCb;
     this.audio.addEventListener("canplaythrough", loadCb);
   },
+  seek(val) {
+    this.audio.currentTime = val;
+  },
   createProgressInterval(cb) {
     if (!this.progressInterval) {
       this.progressInterval = setInterval(() => {
         if (this.audio) {
-          const progress = this.audio.currentTime / this.audio.duration;
+          const duration = this.audio.duration > 0 ? this.audio.duration : 1000;
+          const progress = +(this.audio.currentTime / duration).toFixed(3);
           cb(progress);
         }
       }, 100);

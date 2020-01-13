@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styled from "styled-components";
+
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
@@ -11,65 +11,25 @@ import {
 
 import { prev, next } from "../../utils";
 
-import theme, { PlayButton, Button } from "../../styles/theme";
+import { Button } from "../../styles/theme";
 
 import ProgressBar from "../ProgressBar";
+import PlayButton from "../PlayButton";
 
-const PlayerContainer = styled.div`
-  width: 100%;
-  height: 400px;
-  position: relative;
-  background: ${theme.background};
-  border: 2px solid ${theme.primary};
-`;
+import {
+  PlayerContainer,
+  Image,
+  Details,
+  Title,
+  Author,
+  Controls
+} from "./StyledComponents";
 
-const Image = styled.div`
-  width: 150px;
-  height: 150px;
-  min-height: 150px;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url(${props => props.img}) no-repeat center center;
-  background-size: cover;
-`;
-
-const Details = styled.div`
-  height: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 20px 10px;
-`;
-
-const Title = styled.h1`
-  margin: 0;
-  font-size: 18px;
-  margin: 20px 0 5px 0;
-  line-height: 22px;
-`;
-
-const Author = styled.h2`
-  font-size: 16px;
-  margin: 0;
-`;
-
-const Controls = styled.div`
-  display: flex;
-  vertical-align: center;
-  align-items: center;
-  width: 100%;
-  height: 20%;
-  justify-content: center;
-`;
-
-const Player = ({
+export const Player = ({
   list,
   title,
   author,
-  duration,
   img,
-  url,
   id,
   playing,
   loadPodcast,
@@ -91,22 +51,13 @@ const Player = ({
             size={40}
             img={"icons/prev.png"}
           ></Button>
-          {playing
-            ? PlayButton(
-                { img: "icons/pause.png", size: 60, loaded, border: true },
-                () => loaded && stopPodcast()
-              )
-            : PlayButton(
-                {
-                  img: "icons/play.png",
-                  size: 60,
-                  loaded,
-                  border: true
-                },
-                () => {
-                  playPodcast({ id });
-                }
-              )}
+          <PlayButton
+            stopPodcast={stopPodcast}
+            playPodcast={playPodcast}
+            loaded={loaded}
+            playing={playing}
+            podcastId={id}
+          />
           <Button
             onClick={() => loaded && loadPodcast(next(list, id).id, playing)}
             size={40}
@@ -127,7 +78,6 @@ const mapStateToProps = state => {
     artwork: {
       urls: [{ url: img }]
     },
-    url,
     id,
     playing,
     loaded
@@ -139,7 +89,6 @@ const mapStateToProps = state => {
     duration,
     img,
     id,
-    url,
     playing,
     loaded
   };
@@ -157,7 +106,6 @@ Player.propTypes = {
   author: PropTypes.string,
   duration: PropTypes.number,
   img: PropTypes.string,
-  url: PropTypes.string,
   id: PropTypes.string,
   playing: PropTypes.bool,
   loadPodcast: PropTypes.func,

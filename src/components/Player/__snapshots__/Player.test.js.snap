@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Player /> Renders correctly 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div />
+    <styled.h1 />
+    <styled.h2 />
+  </styled.div>
+  <styled.div>
+    <styled.button
+      img="icons/prev.png"
+      onClick={[Function]}
+      size={40}
+    />
+    <PlayButton />
+    <styled.button
+      img="icons/next.png"
+      onClick={[Function]}
+      size={40}
+    />
+    <ProgressBar />
+  </styled.div>
+</styled.div>
+`;

@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Listing /> Renders correctly 1`] = `
+<styled.div>
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p>Recently I had the pleasure of sitting down with <b>Nick Horrocks</b> founder of X.0 Advisory — a new startup corporate finance boutique.</p>
+
+<p>We discuss everything from how to raise money as a start up through to starting a business alone with only your cat for company.</p>"
+    duration={1513352}
+    id="b82a69fb-e017-4fda-b986-7194e30fe5b0"
+    key="b82a69fb-e017-4fda-b986-7194e30fe5b0"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Nick Horrocks: Mastering the ABC’s of Startup Funding"
+  />
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p>Let's re-cap and take a look back at season one!</p>"
+    duration={438831}
+    id="f23817a3-8f65-4e7c-8d27-9965cd5d17ff"
+    key="f23817a3-8f65-4e7c-8d27-9965cd5d17ff"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Rewind"
+  />
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p>This week I want to talk about why I hire people who are great at turning their hands to many different things. Why getting a great team all of which have their own individual ‘super powers’ is key to success!</p>"
+    duration={394188}
+    id="2892f824-4691-4e3f-9271-424e741a88e7"
+    key="2892f824-4691-4e3f-9271-424e741a88e7"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Giving Your Team Super Powers!"
+  />
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p>Every business has competition. (If you don't you're either incredibly lucky or you should be really worried!).</p>
+
+<p>However, how is best to deal with the competition as an entrepreneur? It can take its toll mentally - here is some advice to help you get your head around this imposing topic.</p>"
+    duration={488725}
+    id="8fa7fdb6-5162-4209-98b3-476052468ca8"
+    key="8fa7fdb6-5162-4209-98b3-476052468ca8"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Competition! Should you be scared?"
+  />
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p><b>Why 2019 should be the year to consider adding podcasting into your marketing mix!</b></p>
+
+<p>Wether your a founder looking to grow your business, a coach looking to build a stronger relationship with clients or a CEO of a organisation with thousands of employees who wants to improve staff culture - podcasting is a great tool to communicate with people.</p>"
+    duration={398106}
+    id="f06cfd74-0087-4573-9ff1-58948396079a"
+    key="f06cfd74-0087-4573-9ff1-58948396079a"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Podcast what you preach."
+  />
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p>Content is bloody important for any online company. Here is exactly why you need to take it seriously. REMEMBER:</p>
+
+<p>AUTHORITY CONTENT + GOODWILL = SALES LEADS 💸</p>"
+    duration={410593}
+    id="e2ea5db9-3071-4620-bbce-2f2b09e299c3"
+    key="e2ea5db9-3071-4620-bbce-2f2b09e299c3"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Create TEACH Inspire"
+  />
+  <ListItem
+    artwork={
+      Object {
+        "type": "podcast",
+        "urls": Array [
+          Object {
+            "size": "600x600",
+            "url": "https://images.pod.co/by4UuF9gW1ZnR5pOBtA7GjV_oIQiRCswYL3X8nxwC0s/resize:fill:600:600/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+          Object {
+            "size": "1400x1400",
+            "url": "https://images.pod.co/PHP4X8CQs7EHSb2DSRrMF3D-CQwIwpZMGUoZN6CUkR0/resize:fill:1400:1400/plain/artwork/158eb9d6-260c-4707-9927-6577463f4a92/create-reach-inspire.jpg",
+          },
+        ],
+      }
+    }
+    current={false}
+    description="<p>WELCOME TO THE PODCAST!!!! 😃</p>
+
+<p>In this episode, 3 CORE principles I run my business by and you can too.</p>
+
+<p>Mild warning: Contains direct, slightly sweary and to the point business advise. Basically, find another podcast if swearing offends you.</p>"
+    duration={615131}
+    id="34b8b0af-c5e1-4474-a1df-a2a56548633e"
+    key="34b8b0af-c5e1-4474-a1df-a2a56548633e"
+    loaded={true}
+    playPodcast={[Function]}
+    playing={false}
+    stopPodcast={[Function]}
+    title="Three SaaSy Commandments"
+  />
+</styled.div>
+`;

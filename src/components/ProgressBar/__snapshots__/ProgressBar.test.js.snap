@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loader /> Renders correctly 1`] = `
+<styled.div>
+  <input
+    className="slider"
+    max={1}
+    min={0}
+    readOnly={true}
+    step={0.001}
+    type="range"
+    value={0}
+  />
+</styled.div>
+`;

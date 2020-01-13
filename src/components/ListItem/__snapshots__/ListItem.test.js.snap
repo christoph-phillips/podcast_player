@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListItem /> Renders correctly 1`] = `
+<styled.div>
+  <PlayButton
+    playing={false}
+  />
+  <styled.div>
+    <styled.h4>
+      Nick Horrocks: Mastering the ABC’s of Startup Funding
+    </styled.h4>
+    <styled.p>
+      25:13
+    </styled.p>
+    <styled.div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Recently I had the pleasure of sitting down with <b>Nick Horrocks</b> founder of X.0 Advisory — a new startup corporate finance boutique.</p>
+
+<p>We discuss everything from how to raise money as a start up through to starting a business alone with only your cat for company.</p>",
+        }
+      }
+    />
+  </styled.div>
+</styled.div>
+`;
+
+exports[`<ListItem /> Renders data fields correctly 1`] = `
+<styled.div>
+  <PlayButton />
+  <styled.div>
+    <styled.h4>
+      Nick Horrocks: Mastering the ABC’s of Startup Funding
+    </styled.h4>
+    <styled.p>
+      25:13
+    </styled.p>
+    <styled.div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Recently I had the pleasure of sitting down with <b>Nick Horrocks</b> founder of X.0 Advisory — a new startup corporate finance boutique.</p>
+
+<p>We discuss everything from how to raise money as a start up through to starting a business alone with only your cat for company.</p>",
+        }
+      }
+    />
+  </styled.div>
+</styled.div>
+`;

@@ -7,10 +7,10 @@ import { loadPodcasts } from "./actions/podcasts_actions";
 
 import Player from "./components/Player";
 import Listing from "./components/Listing";
+import Loader from "./components/Loader";
+import theme from "./styles/theme";
 
-import theme, { Loader, LoaderContainer } from "./styles/theme";
-
-const AppContainer = styled.div`
+export const AppContainer = styled.div`
   width: 400px;
   top: 20px;
   left: calc((100% - 400px) / 2);
@@ -27,7 +27,7 @@ const AppContainer = styled.div`
   }
 `;
 
-function App({ loadPodcasts, current }) {
+export function App({ loadPodcasts, current }) {
   useEffect(() => {
     loadPodcasts();
   }, [loadPodcasts]);
@@ -35,9 +35,7 @@ function App({ loadPodcasts, current }) {
   return (
     <AppContainer>
       {!current ? (
-        <LoaderContainer size={620}>
-          <Loader />
-        </LoaderContainer>
+        <Loader size={620} />
       ) : (
         <Fragment>
           <Player />
