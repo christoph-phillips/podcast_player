@@ -18,6 +18,7 @@ const Button = styled.button`
   border: ${props => (props.border ? "2px solid black" : 0)};
   outline: 0;
   margin: 20px;
+  -webkit-tap-highlight-color: transparent;
   &:focus {
     outline: none;
   }
