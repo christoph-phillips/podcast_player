@@ -1,21 +1,15 @@
 import React, { Fragment } from "react";
-
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-
+import { prev, next } from "../../utils";
 import {
   playPodcast,
   stopPodcast,
   loadPodcast
 } from "../../actions/podcasts_actions";
-
-import { prev, next } from "../../utils";
-
-import { Button } from "../../styles/theme";
-
 import ProgressBar from "../ProgressBar";
 import PlayButton from "../PlayButton";
-
+import { Button } from "../../styles/theme";
 import {
   PlayerContainer,
   Image,
@@ -114,7 +108,4 @@ Player.propTypes = {
   loaded: PropTypes.bool
 };
 
-export default connect(
-  mapStateToProps,
-  actionCreators
-)(Player);
+export default connect(mapStateToProps, actionCreators)(Player);

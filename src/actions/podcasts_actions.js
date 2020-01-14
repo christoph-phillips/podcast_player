@@ -28,6 +28,7 @@ export const loadPodcast = (id, autoplay) => {
     payload: { id, autoplay }
   };
 };
+
 export const playPodcast = ({ id, url }) => {
   return {
     type: PLAY_PODCAST,

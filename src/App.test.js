@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { App } from "./App";
 import Loader from "./components/Loader";
 import mockData from "./test/mock_data";
@@ -17,5 +17,10 @@ describe("<App />", () => {
     const component = shallow(<App current={mockData[0]} />);
     expect(component.find("Connect(Player)")).toExist();
     expect(component.find("Connect(Listing)")).toExist();
+  });
+  it("It fires the fetchPodcasts function on mount", () => {
+    const fetchPodcasts = jest.fn();
+    const component = mount(<App fetchPodcasts={fetchPodcasts} />);
+    expect(fetchPodcasts).toHaveBeenCalledTimes(1);
   });
 });

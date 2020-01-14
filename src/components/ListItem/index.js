@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { humanReadableTime } from "../../utils";
-
+import PlayButton from "../PlayButton";
 import {
   ListContainer,
   DetailContainer,
@@ -9,7 +9,7 @@ import {
   SubDetail,
   Duration
 } from "./StyledComponents";
-import PlayButton from "../PlayButton";
+
 const ListItem = ({
   title,
   description,
