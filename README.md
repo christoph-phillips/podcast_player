@@ -1,10 +1,6 @@
-# :notes: Podcast Player Task :notes:
+# :notes: A Podcast Player :notes:
 
 ## View Live [@here](https://vigorous-mclean-17a21b.netlify.com/)
-
-## Introduction
-
-The challenge was to simulate a podcast player through a web interface with a list of available episodes to listen to using the Podcast.co API.
 
 ## Local Install
 
@@ -22,7 +18,7 @@ Prettier is used for code formatting, VSCode is setup to format all files on sav
 
 ### Redux
 
-As we discussed Redux extensively during our call I decided to use redux in the project. It consists of:
+I decided to use redux in the project. It consists of:
 
 - One set of actions for controlling the state of the application (`podcasts_actions.js`).
 - One reducer to reflect the state of the application (`podcasts_reducer.js`).
